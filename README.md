@@ -5,22 +5,9 @@ The bot is implemented with AWS API Gateway and Lambda.
 
 ## Structure
 
-```plantuml
-@startuml
-node "Slack" {
-  [Slack App]
-}
+![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuShBJqbLK0hEIKpELbAevb9GY0Qp5HmB2cAvQhcuadFoIrCKb1p3Ww7IZW6U2kw99QdbYPMn8BvFOcvIIY9ORRHpJcPgNaciWcwHhXsAGGWsH1BL60KhXO3yuX8kP468EeJn3gbvAK3t0W00)
 
-cloud "AWS" {
-  [API Gateway]
-  [Lambda]
-}
-
-[Client] -r-> [Slack App]
-[Slack App] -r-> [API Gateway] : Post
-[API Gateway] -r-> [Lambda]
-@enduml
-```
+[PlantUML code](http://www.plantuml.com/plantuml/uml/SoWkIImgAStDuShBJqbLK0hEIKpELbAevb9GY0Qp5HmB2cAvQhcuadFoIrCKb1p3Ww7IZW6U2kw99QdbYPMn8BvFOcvIIY9ORRHpJcPgNaciWcwHhXsAGGWsH1BL60KhXO3yuX8kP468EeJn3gbvAK3t0W00)
 
 ## Prerequisite
 
