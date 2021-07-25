@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Lambda template.
+
+Parameters:
+  FUNCTION_NAME:
+    Type: String
+    Description: >
+      function name.
+    AllowedValues:
+      - eventreminder
+  ComponentName:
+    Description: Component name.
+    Type: String
+    Default: >
+      component name.
+    AllowedValues:
+      - systemperformance
+Resources:
+
+  ############
+  # Lambda
+  ############
+  SystemPerformanceEventReminderFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${ComponentName}-${InitVersionReleaseFunctionName}
+      CodeUri: init_version_release/app/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      MemorySize: 128
+      Timeout: 900
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
