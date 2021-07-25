@@ -37,7 +37,12 @@ function getStringFromDateForSlack(date) {
 }
 
 exports.lambdaHandler = async (event, context) => {
-    var args = event.text.split(/\s+/);
+    let body = decodeURIComponent(event.body);
+    let params = {};
+    body.split("&").map(arg => {
+        let sp = arg.split("="); params[sp[0]] = sp[1]
+    });
+    args = params.text.split("+");  // white space was replaced with +
     var BASE_URL = "http://www.google.com/calendar/event?";
     var EVENT_URL =
         BASE_URL +
