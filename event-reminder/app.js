@@ -1,5 +1,6 @@
+
 function formatDate(date) {
-    return date.getFullYear() + zeroSlice(date.getMonth() + 1) + zeroSlice(date.getDate()) + "T" + 
+    return date.getFullYear() + zeroSlice(date.getMonth() + 1) + zeroSlice(date.getDate()) + "T" +
         zeroSlice(date.getHours()) + zeroSlice(date.getMinutes()) + zeroSlice(date.getSeconds());
 }
 
@@ -9,8 +10,7 @@ function zeroSlice(val) {
 
 function getStringFromDate(date) {
     var year_str = date.getFullYear();
-    //月だけ+1すること
-    var month_str = 1 + date.getMonth();
+    var month_str = 1 + date.getMonth();  //月だけ+1する
     var day_str = date.getDate();
     var hour_str = date.getHours();
     var minute_str = date.getMinutes();
@@ -25,8 +25,7 @@ function getStringFromDate(date) {
 
 function getStringFromDateForSlack(date) {
     var year_str = date.getFullYear();
-    //月だけ+1すること
-    var month_str = 1 + date.getMonth();
+    var month_str = 1 + date.getMonth();  //月だけ+1すること
     var day_str = date.getDate();
     var hour_str = date.getHours();
     var minute_str = date.getMinutes();
@@ -37,7 +36,7 @@ function getStringFromDateForSlack(date) {
     return format_str;
 }
 
-exports.handler = async (event) => {
+exports.lambdaHandler = async (event, context) => {
     var args = event.text.split(/\s+/);
     var BASE_URL = "http://www.google.com/calendar/event?";
     var EVENT_URL =
@@ -47,8 +46,11 @@ exports.handler = async (event) => {
         "&dates=" + formatDate(new Date(Date.parse(args[0]))) + "/" + formatDate(new Date(Date.parse(args[1]))) +
         "&location=" + args[2] +
         "&trp=true&trp=undefined&trp=true&sprop=";
+
     const start_date = new Date(Date.parse(args[0]));
-    const message = "次回は、 *" + getStringFromDate(start_date) + "* からです。\nリマインダを登録: `/remind me 本日はSystems Performance読書会です! on " + getStringFromDateForSlack(start_date) + " at 9:00am`\n<"+ EVENT_URL + "|Google Calendarへ追加>";
+    const message = "次回は、 *" + getStringFromDate(start_date) + "* からです。\n" +
+        "リマインダを登録: `/remind me 本日はSystems Performance読書会です! on " + getStringFromDateForSlack(start_date) + " at 9:00am`\n" +
+        "<"+ EVENT_URL + "|Google Calendarへ追加>";
 
     const response = {
         blocks: [
