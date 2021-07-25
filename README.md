@@ -78,5 +78,5 @@ sam build
 Run functions locally and invoke them.
 
 ```bash
-sam local invoke HelloWorldFunction --event events/event.json
+sam local invoke EventReminderFunction --event events/event.json
 ```

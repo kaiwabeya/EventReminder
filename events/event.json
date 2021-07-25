@@ -1,5 +1,5 @@
 {
-  "body": "{\"text\": \"2021-04-21T18:30 2021-04-21T21:00 リモート開催\"}",
+  "body": "token=youttoken&team_id=youtteam&team_domain=yourdomain&channel_id=yourchannel&channel_name=name&user_id=userid&user_name=name&command=%2Fevent&text=2021-07-29T18%3A30+2021-07-29T21%3A00+%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E9%96%8B%E5%82%AC",
   "resource": "/{proxy+}",
   "path": "/path/to/resource",
   "httpMethod": "POST",
