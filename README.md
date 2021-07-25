@@ -31,7 +31,7 @@ Copy a value of API URL that is used in setting up a Slack app.
 ```txt
 Key                 EventReminderApi
 Description         API Gateway endpoint URL for Prod stage for Event Reminder function
-Value               https://{api_id}.execute-api.ap-northeast-1.amazonaws.com/Prod/reminder/
+Value               https://{api_id}.execute-api.{region}.amazonaws.com/{stage}/reminder/
 
 Key                 EventReminderFunction
 Description         Event Reminder Lambda Function ARN
