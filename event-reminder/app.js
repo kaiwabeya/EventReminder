@@ -52,7 +52,7 @@ exports.lambdaHandler = async (event, context) => {
         "リマインダを登録: `/remind me 本日はSystems Performance読書会です! on " + getStringFromDateForSlack(start_date) + " at 9:00am`\n" +
         "<"+ EVENT_URL + "|Google Calendarへ追加>";
 
-    const response = {
+    const response_body = {
         blocks: [
             {
                 type: "section",
@@ -64,5 +64,8 @@ exports.lambdaHandler = async (event, context) => {
         ],
         response_type: "in_channel"
     };
-    return response;
+    return {
+        body: JSON.stringify(response_body),
+        statusCode: 200
+    };
 };
