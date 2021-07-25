@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  event-reminder
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  EventReminderFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: event-reminder/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Events:
+        HelloWorld:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /reminder
+            Method: post
+
+Outputs:
+  EventReminderApi:
+    Description: "API Gateway endpoint URL for Prod stage for Event Reminder function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/reminder/"
+  EventReminderFunction:
+    Description: "Event Reminder Lambda Function ARN"
+    Value: !GetAtt EventReminderFunction.Arn
+  EventReminderFunctionIamRole:
+    Description: "Implicit IAM Role created for Event Reminder function"
+    Value: !GetAtt EventReminderFunctionRole.Arn
