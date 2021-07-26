@@ -66,7 +66,7 @@ Unit test an application.
 ```bash
 cd event-reminder
 npm install
-npm run test
+npm test
 ```
 
 Build an application.
