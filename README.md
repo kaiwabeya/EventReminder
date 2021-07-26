@@ -1,6 +1,6 @@
 # Event Reminder Slack slash command
 
-The project is deployment scripts of an event reminding bot of Slack.
+The project includes deployment scripts of an event reminding bot of Slack.
 The bot is implemented with AWS API Gateway and Lambda.
 
 ## Structure
@@ -48,7 +48,7 @@ Create a new slach command from Slack API management page.
 
 ![](figs/slack_setting_01.png)
 
-Configure of the new slash command like following.
+Configure the new slash command like following.
 Paste the URL in "Request URL".
 
 ![](figs/slack_setting_02.png)
@@ -75,7 +75,7 @@ Build an application.
 sam build
 ```
 
-Run functions locally and invoke them.
+Run a function locally and invoke it.
 
 ```bash
 sam local invoke EventReminderFunction --event events/event.json
