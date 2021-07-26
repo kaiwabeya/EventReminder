@@ -14,10 +14,12 @@ jobs:
       max-parallel: 1
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - name: Set up nodejs and npm
+      uses: actions/setup-node@v2
       with:
         node-version: '14'
-    - run: |
+    - name: Install npm packages & Run test
+      run: |
         npm install
         npm test
       working-directory: ./event-reminder
