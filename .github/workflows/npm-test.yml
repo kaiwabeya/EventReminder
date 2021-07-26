@@ -1,5 +1,4 @@
-- name: npm test CI
-  uses: actions/setup-node@v2.3.0
+name: npm test CI
 
 on:
   pull_request:
