@@ -1,3 +1,4 @@
+'use strict';
 
 function formatDate(date) {
     return date.getFullYear() + zeroSlice(date.getMonth() + 1) + zeroSlice(date.getDate()) + "T" +
@@ -9,12 +10,12 @@ function zeroSlice(val) {
 }
 
 function getStringFromDate(date) {
-    var year_str = date.getFullYear();
-    var month_str = 1 + date.getMonth();  //月だけ+1する
-    var day_str = date.getDate();
-    var hour_str = date.getHours();
-    var minute_str = date.getMinutes();
-    var format_str = 'YYYY/MM/DD hh:mm';
+    const year_str = date.getFullYear();
+    const month_str = 1 + date.getMonth();  //月だけ+1する
+    const day_str = date.getDate();
+    const hour_str = date.getHours();
+    const minute_str = date.getMinutes();
+    let format_str = 'YYYY/MM/DD hh:mm';
     format_str = format_str.replace(/YYYY/g, year_str);
     format_str = format_str.replace(/MM/g, month_str);
     format_str = format_str.replace(/DD/g, day_str);
@@ -24,12 +25,10 @@ function getStringFromDate(date) {
 }
 
 function getStringFromDateForSlack(date) {
-    var year_str = date.getFullYear();
-    var month_str = 1 + date.getMonth();  //月だけ+1すること
-    var day_str = date.getDate();
-    var hour_str = date.getHours();
-    var minute_str = date.getMinutes();
-    var format_str = 'MM/DD/YYYY';
+    const year_str = date.getFullYear();
+    const month_str = 1 + date.getMonth();  //月だけ+1すること
+    const day_str = date.getDate();
+    let format_str = 'MM/DD/YYYY';
     format_str = format_str.replace(/YYYY/g, year_str);
     format_str = format_str.replace(/MM/g, month_str);
     format_str = format_str.replace(/DD/g, day_str);
@@ -37,14 +36,14 @@ function getStringFromDateForSlack(date) {
 }
 
 exports.lambdaHandler = async (event, context) => {
-    let body = decodeURIComponent(event.body);
+    const body = decodeURIComponent(event.body);
     let params = {};
     body.split("&").map(arg => {
         let sp = arg.split("="); params[sp[0]] = sp[1]
     });
-    args = params.text.split("+");  // white space was replaced with +
-    var BASE_URL = "http://www.google.com/calendar/event?";
-    var EVENT_URL =
+    const args = params.text.split("+");  // white space was replaced with +
+    const BASE_URL = "http://www.google.com/calendar/event?";
+    const EVENT_URL =
         BASE_URL +
         "action=TEMPLATE" +
         "&text=Systems_Performance読書会" +
