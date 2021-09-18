@@ -42,9 +42,9 @@ exports.lambdaHandler = async (event, context) => {
         let sp = arg.split("="); params[sp[0]] = sp[1]
     });
     const args = params.text.split("+");  // white space was replaced with +
-    let location_name = "";
+    let location_param = "";
     if(3 <= args.length) {
-        location_name = args[2];
+        location_param = "&location=" + args[2];
     }
     const BASE_URL = "http://www.google.com/calendar/event?";
     const EVENT_URL =
@@ -52,7 +52,7 @@ exports.lambdaHandler = async (event, context) => {
         "action=TEMPLATE" +
         "&text=Systems_Performance読書会" +
         "&dates=" + formatDate(new Date(Date.parse(args[0]))) + "/" + formatDate(new Date(Date.parse(args[1]))) +
-        "&location=" + location_name +
+        location_param +
         "&trp=true&trp=undefined&trp=true&sprop=";
 
     const start_date = new Date(Date.parse(args[0]));
