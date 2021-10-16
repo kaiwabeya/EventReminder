@@ -15,12 +15,14 @@ function getStringFromDate(date) {
     const day_str = date.getDate();
     const hour_str = date.getHours();
     const minute_str = date.getMinutes();
-    let format_str = 'YYYY/MM/DD hh:mm';
+    const day_of_week = ["日", "月", "火", "水", "木", "金", "土" ][date.getDay()];
+    let format_str = 'YYYY/MM/DD(WW) hh:mm';
     format_str = format_str.replace(/YYYY/g, year_str);
     format_str = format_str.replace(/MM/g, month_str);
     format_str = format_str.replace(/DD/g, day_str);
     format_str = format_str.replace(/hh/g, hour_str);
     format_str = format_str.replace(/mm/g, minute_str);
+    format_str = format_str.replace(/WW/g, day_of_week);
     return format_str;
 }
 
