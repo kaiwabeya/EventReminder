@@ -35,9 +35,9 @@ Resources:
             RestApiId: !Ref EventReminderApi
 
 Outputs:
-  EventReminderApi:
+  EventReminderApiUrl:
     Description: "API Gateway endpoint URL for Prod stage for Event Reminder function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/reminder/"
+    Value: !Sub "https://${EventReminderApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/reminder/"
   EventReminderFunction:
     Description: "Event Reminder Lambda Function ARN"
     Value: !GetAtt EventReminderFunction.Arn
