@@ -52,14 +52,14 @@ exports.lambdaHandler = async (event, context) => {
     const EVENT_URL =
         BASE_URL +
         "action=TEMPLATE" +
-        "&text=Fundamentals of Software Architecture読書会" +
+        "&text=サイトリライアビリティワークブック読書会" +
         "&dates=" + formatDate(new Date(Date.parse(args[0]))) + "/" + formatDate(new Date(Date.parse(args[1]))) +
         location_param +
         "&trp=true&trp=undefined&trp=true&sprop=";
 
     const start_date = new Date(Date.parse(args[0]));
     const message = "次回は、 *" + getStringFromDate(start_date) + "* からです。\n" +
-        "リマインダを登録: `/remind me 本日はFundamentals of Software Architecture読書会です! on " + getStringFromDateForSlack(start_date) + " at 9:00am`\n" +
+        "リマインダを登録: `/remind me 本日はサイトリライアビリティワークブック読書会です! on " + getStringFromDateForSlack(start_date) + " at 9:00am`\n" +
         "<"+ EVENT_URL + "|Google Calendarへ追加>";
 
     const response_body = {

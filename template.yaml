@@ -9,6 +9,17 @@ Globals:
     Timeout: 3
 
 Resources:
+
+  EventReminderApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      MethodSettings:
+        - ResourcePath: /
+          HttpMethod: POST
+          ThrottlingRateLimit: 1
+          ThrottlingBurstLimit: 2
+
   EventReminderFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -21,6 +32,7 @@ Resources:
           Properties:
             Path: /reminder
             Method: post
+            RestApiId: !Ref EventReminderApi
 
 Outputs:
   EventReminderApi:
