@@ -1,3 +1,5 @@
+[![npm test CI](https://github.com/kaiwabeya/EventReminder/actions/workflows/npm-test.yml/badge.svg)](https://github.com/kaiwabeya/EventReminder/actions/workflows/npm-test.yml)
+
 # Event Reminder Slack slash command
 
 The project includes deployment scripts of an event reminding bot of Slack.

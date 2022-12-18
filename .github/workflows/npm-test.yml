@@ -6,9 +6,10 @@ on:
     branches:
       - develop
       - master
+      - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 1
