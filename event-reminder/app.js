@@ -57,7 +57,7 @@ exports.lambdaHandler = async (event, context) => {
         "&text=" + seminar_title +
         "&dates=" + formatDate(new Date(Date.parse(args[0]))) + "/" + formatDate(new Date(Date.parse(args[1]))) +
         location_param +
-        "&trp=true&trp=undefined&trp=true&sprop=";
+        "&trp=false";
 
     const start_date = new Date(Date.parse(args[0]));
     const message = "次回は、 *" + getStringFromDate(start_date) + "* からです。\n" +
