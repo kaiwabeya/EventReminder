@@ -22,8 +22,8 @@ describe('Tests index', function () {
                         text: {
                             type: 'mrkdwn',
                             text: '次回は、 *2021/7/29(木) 18:30* からです。\n' +
-                                'リマインダを登録: `/remind me 本日はサイトリライアビリティワークブック読書会です! on 7/29/2021 at 9:00am`\n' +
-                                '<http://www.google.com/calendar/event?action=TEMPLATE&text=サイトリライアビリティワークブック読書会&dates=20210729T183000/20210729T210000&location=リモート開催&trp=true&trp=undefined&trp=true&sprop=|Google Calendarへ追加>'
+                                'リマインダを登録: `/remind me 本日は大規模データ管理読書会です! on 7/29/2021 at 9:00am`\n' +
+                                '<http://www.google.com/calendar/event?action=TEMPLATE&text=大規模データ管理読書会&dates=20210729T183000/20210729T210000&location=リモート開催&trp=true&trp=undefined&trp=true&sprop=|Google Calendarへ追加>'
                         }
                     }
                 ],
@@ -51,8 +51,8 @@ describe('Tests index', function () {
                         text: {
                             type: 'mrkdwn',
                             text: '次回は、 *2021/7/29(木) 18:30* からです。\n' +
-                                'リマインダを登録: `/remind me 本日はサイトリライアビリティワークブック読書会です! on 7/29/2021 at 9:00am`\n' +
-                                '<http://www.google.com/calendar/event?action=TEMPLATE&text=サイトリライアビリティワークブック読書会&dates=20210729T183000/20210729T210000&trp=true&trp=undefined&trp=true&sprop=|Google Calendarへ追加>'
+                                'リマインダを登録: `/remind me 本日は大規模データ管理読書会です! on 7/29/2021 at 9:00am`\n' +
+                                '<http://www.google.com/calendar/event?action=TEMPLATE&text=大規模データ管理読書会&dates=20210729T183000/20210729T210000&trp=true&trp=undefined&trp=true&sprop=|Google Calendarへ追加>'
                         }
                     }
                 ],
