@@ -1,15 +1,17 @@
 'use strict';
 
-function formatDate(date) {
+const seminar_title = "大規模データ管理読書会";
+
+const formatDate = (date) => {
     return date.getFullYear() + zeroSlice(date.getMonth() + 1) + zeroSlice(date.getDate()) + "T" +
         zeroSlice(date.getHours()) + zeroSlice(date.getMinutes()) + zeroSlice(date.getSeconds());
 }
 
-function zeroSlice(val) {
+const zeroSlice = (val) => {
     return ('0' + val).slice(-2);
 }
 
-function getStringFromDate(date) {
+const getStringFromDate = (date) => {
     const year_str = date.getFullYear();
     const month_str = 1 + date.getMonth();  //月だけ+1する
     const day_str = date.getDate();
@@ -26,7 +28,7 @@ function getStringFromDate(date) {
     return format_str;
 }
 
-function getStringFromDateForSlack(date) {
+const getStringFromDateForSlack = (date) => {
     const year_str = date.getFullYear();
     const month_str = 1 + date.getMonth();  //月だけ+1すること
     const day_str = date.getDate();
@@ -52,14 +54,14 @@ exports.lambdaHandler = async (event, context) => {
     const EVENT_URL =
         BASE_URL +
         "action=TEMPLATE" +
-        "&text=サイトリライアビリティワークブック読書会" +
+        "&text=" + seminar_title +
         "&dates=" + formatDate(new Date(Date.parse(args[0]))) + "/" + formatDate(new Date(Date.parse(args[1]))) +
         location_param +
         "&trp=true&trp=undefined&trp=true&sprop=";
 
     const start_date = new Date(Date.parse(args[0]));
     const message = "次回は、 *" + getStringFromDate(start_date) + "* からです。\n" +
-        "リマインダを登録: `/remind me 本日はサイトリライアビリティワークブック読書会です! on " + getStringFromDateForSlack(start_date) + " at 9:00am`\n" +
+        "リマインダを登録: `/remind me 本日は" + seminar_title + "です! on " + getStringFromDateForSlack(start_date) + " at 9:00am`\n" +
         "<"+ EVENT_URL + "|Google Calendarへ追加>";
 
     const response_body = {
