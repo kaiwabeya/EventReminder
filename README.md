@@ -23,8 +23,7 @@ The bot is implemented with AWS API Gateway and Lambda.
 ### Deploy AWS components
 
 ```bash
-sam build
-sam deploy --guided
+./deploy.sh
 ```
 
 Followings are outputs.
