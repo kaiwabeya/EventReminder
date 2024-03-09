@@ -26,8 +26,8 @@ The bot is implemented with AWS API Gateway and Lambda.
 ./deploy.sh
 ```
 
-Followings are outputs.
-Copy a value of API URL that is used in setting up a Slack app.
+You can see the followings outputs in the CloudFormation page of AWS Console.
+Copy the value of EventReminderApi that is used in setting up a Slack app.
 
 ```txt
 Key                 EventReminderApi
